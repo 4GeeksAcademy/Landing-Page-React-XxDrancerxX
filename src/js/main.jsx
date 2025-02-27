@@ -1,18 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-//Bootstrap
+// Import Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap"
+import "bootstrap";
 
-// index.css'
-import '../styles/index.css'
+// Import Global Styles
+import '../styles/index.css';
 
-// components
-import Jumbotron from './components/Home';
+// Import Components
+import Home from './components/home';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Jumbotron/>
-  </React.StrictMode>,
-)
+    <Home />
+  </React.StrictMode>
+);

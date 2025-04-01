@@ -1,11 +1,10 @@
-import React from "react";
-
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
 import Cards from "./cards";
 import FooterCode from "./footer";
+import React, { useState } from "react";
 
 //create your first component
 const cardsArray = [
@@ -39,22 +38,27 @@ const cardsArray = [
   },
 ];
 
-const generateRamdonCard = () => {
-  const randomIndex = Math.floor(Math.random() * cardsArray.length);
-  return cardsArray[randomIndex];
+const shuffleCards = (array) => {
+  let shuffled = [...array]
+  shuffled.sort(() => Math.random() - 0.5);
+  return shuffled
 };
 
 const Home = () => {
+  const [cards, setCards] = useState(cardsArray);
+  console.log(cards,"the cards!!!1")
+
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
       <div className="container flex-grow-1 d-flex flex-column">
-
         <Jumbotron />
+        <button onClick={()=>{
+          setCards(shuffleCards(cards))
+        }}className="btn btn-primary">Shuffle cards</button>
         <div className="row flex-grow-1 h-100 mb-5 mt-4">
-
-
-          {cardsArray.map((eachCard, index) => (
+          {cards.map((eachCard, index) => (
             <div key={index} className="col-md-3">
               <Cards
                 title={eachCard.title}

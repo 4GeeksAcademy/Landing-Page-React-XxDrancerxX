@@ -2,8 +2,8 @@ import React from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
+import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
-import SecondHeader from "./second-header";
 import Cards from "./cards";
 import FooterCode from "./footer";
 
@@ -39,13 +39,18 @@ const cardsArray = [
   },
 ];
 
+const generateRamdonCard = () => {
+  const randomIndex = Math.floor(Math.random() * cardsArray.length);
+  return cardsArray[randomIndex];
+};
+
 const Home = () => {
   return (
     <div className="d-flex flex-column min-vh-100">
-      <Jumbotron />
+      <Navbar />
       <div className="container flex-grow-1 d-flex flex-column">
 
-        <SecondHeader />
+        <Jumbotron />
         <div className="row flex-grow-1 h-100 mb-5 mt-4">
 
 
